@@ -100,9 +100,9 @@ export const ChatHeader = styled.header`
   }
 `;
 
-export const ChatHeaderBtn = styled.button`
-  background: #cbdfab;
-  border-radius: 4px;
+export const ChatBtn = styled.button`
+  background: ${({ color }) => color || "#cbdfab"};
+  border-radius: ${({ radius }) => radius}px;
   border: none;
   outline: none;
   box-shadow: none;
@@ -185,6 +185,101 @@ export const ChatTextarea = styled.label`
     left: 0;
     top: 0;
     padding-left: 58px;
+    padding-right: 38px;
+    transition: all 0.3s;
+    &:focus {
+      transition: all 0.3s;
+      box-shadow: none;
+      outline: none;
+      border: 1px solid #719438;
+    }
+  }
+  .btn-group {
+    position: absolute;
+    top: 50%;
+    column-gap: 1px;
+    padding-left: 9px;
+    transform: translate(0, -50%);
+    button {
+      box-shadow: none;
+      outline: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .send-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding-right: 4px;
+    transform: translate(0, -50%);
+    button {
+      &:hover {
+        svg path {
+          fill: hsl(0, 0%, 90%);
+        }
+      }
+    }
   }
 `;
-export const ChatText = styled.div``;
+export const ChatText1 = styled.div`
+  margin-bottom: 12px;
+  span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 13px;
+    display: inline-block;
+    margin-bottom: 3px;
+    color: #515262;
+  }
+  .chat-flex {
+    column-gap: 8px;
+    .img-con {
+      margin-top: 20px;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      border-radius: 100px 5px 100px 100px;
+    }
+    .chat-item {
+      p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        color: #000000;
+        background: #f4f9eb;
+        border-radius: 5px 20px 20px 20px;
+        padding: 10px 12px;
+        max-width: 193px;
+      }
+    }
+  }
+`;
+export const ChatText2 = styled.div`
+  display: flex;
+  margin-bottom: 14px;
+  justify-content: flex-end;
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ffffff;
+    margin-bottom: 4px;
+    background: #78a431;
+    border-radius: 15px 5px 15px 15px;
+    padding: 13px 19px 13px 16px;
+  }
+  span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 13px;
+    color: #515262;
+  }
+`;

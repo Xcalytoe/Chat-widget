@@ -1,5 +1,5 @@
 import React from "react";
-import { ChatHeader, ChatHeaderBtn } from "./styles/ChatBox.styled";
+import { ChatHeader, ChatBtn } from "./styles/ChatBox.styled";
 
 export default function Header({ handleOpen }) {
   const handleClose = () => {
@@ -8,20 +8,20 @@ export default function Header({ handleOpen }) {
   return (
     <ChatHeader>
       <div className="flex chat-header">
-        <ChatHeaderBtn onClick={handleClose} size={28}>
+        <ChatBtn onClick={handleClose} size={28} radius={4}>
           {back}
-        </ChatHeaderBtn>
+        </ChatBtn>
         <div>
           <h2>Start your conversation</h2>
           <p>Penny is set!</p>
         </div>
         <div className="flex">
-          <ChatHeaderBtn onClick={handleClose} size={24}>
+          <ChatBtn onClick={handleClose} size={24} radius={3}>
             {minimise}
-          </ChatHeaderBtn>
-          <ChatHeaderBtn onClick={handleClose} size={24}>
+          </ChatBtn>
+          <ChatBtn onClick={handleClose} size={24} radius={3}>
             {close}
-          </ChatHeaderBtn>
+          </ChatBtn>
         </div>
       </div>
     </ChatHeader>
