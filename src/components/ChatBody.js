@@ -38,7 +38,7 @@ export default function ChatBody() {
   const handleSendMsgAdmin = () => {
     // save message
     console.log(allChats, "here");
-    // setTimeout(() => setAllChats([...allChats, dummyMessage[msgCount]]), 5000);
+    setTimeout(() => setAllChats([...allChats, dummyMessage[msgCount]]), 5000);
 
     // increase count
     setMsgCount(msgCount + 1);
