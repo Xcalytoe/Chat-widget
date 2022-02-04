@@ -263,6 +263,7 @@ export const ChatText2 = styled.div`
   display: flex;
   margin-bottom: 14px;
   justify-content: flex-end;
+  margin-right: 2px;
   p {
     font-style: normal;
     font-weight: normal;

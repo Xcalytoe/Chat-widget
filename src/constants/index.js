@@ -34,7 +34,7 @@ export const emojis = [
 
 export const dummyMessage = [
   { msg: "Please let me know your name?", type: "admin" },
-  { msg: "Thank You Daaly, what will you like to do today?", type: "admin" },
+  { msg: "Thank You, what will you like to do today?", type: "admin" },
   { msg: "What else do you want me to do for you?", type: "admin" },
 ];
 

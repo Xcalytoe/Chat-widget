@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   ChatMainBody,
   ChatTextarea,
@@ -16,6 +16,7 @@ export default function ChatBody() {
   const [msgCount, setMsgCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [effect, setEffect] = useState(false);
+  const scroll = useRef();
 
   const onChange = (e) => {
     setMsg(e.target.value);
@@ -28,6 +29,7 @@ export default function ChatBody() {
       setAllChats([...allChats, { msg: msg }]);
       setMsg("");
       setLoading(true);
+      scroll.current.scrollIntoView({ behavior: "smooth" });
       //   detect when a user sends msg
       setEffect(true);
     }
@@ -49,6 +51,7 @@ export default function ChatBody() {
       setAllChats([...allChats, dummyMessage[msgCount]]);
       return;
     }, 5000);
+    scroll.current.scrollIntoView({ behavior: "smooth" });
 
     // increase count for admin's array index
     msgCount === 2 ? setMsgCount(0) : setMsgCount(msgCount + 1);
@@ -89,6 +92,7 @@ export default function ChatBody() {
             </div>
           </ChatText1>
         )}
+        <div ref={scroll}></div>
       </div>
       <form onSubmit={handleSendMsg}>
         <ChatTextarea>
