@@ -10,7 +10,6 @@ export const ChatBox = styled.div`
   bottom: 100px;
   overflow-y: auto;
   background: #ffffff;
-  border: 1px solid red;
   animation: content 0.3s ease-in-out 1 normal;
 
   /* Hide scrollbar for Chrome, Safari and Opera */

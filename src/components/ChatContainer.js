@@ -13,7 +13,7 @@ export default function ChatContainer() {
   };
   return (
     <>
-      {!openChat && ( // display only when chat is open
+      {openChat && ( // display only when chat is open
         <ChatBox>
           <Header handleOpen={handleOpen} />
           <ChatBody />

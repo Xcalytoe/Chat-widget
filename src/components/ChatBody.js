@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ChatMainBody,
   ChatTextarea,
@@ -15,6 +15,7 @@ export default function ChatBody() {
   const [allChats, setAllChats] = useState([]);
   const [msgCount, setMsgCount] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [effect, setEffect] = useState(false);
 
   const onChange = (e) => {
     setMsg(e.target.value);
@@ -26,24 +27,31 @@ export default function ChatBody() {
       // save message
       setAllChats([...allChats, { msg: msg }]);
       setMsg("");
-      console.log(allChats, "handleSendMsg");
       setLoading(true);
-
-      // trigger admin function
-      setTimeout(() => handleSendMsgAdmin(), 5000);
-      return;
+      //   detect when a user sends msg
+      setEffect(true);
     }
   };
 
-  const handleSendMsgAdmin = () => {
-    // save message
-    console.log(allChats, "here");
-    setTimeout(() => setAllChats([...allChats, dummyMessage[msgCount]]), 5000);
+  useEffect(() => {
+    // trigger admin function
+    effect && handleSendMsgAdmin();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [effect]);
 
-    // increase count
-    setMsgCount(msgCount + 1);
-    // set loading to false
-    setLoading(false);
+  const handleSendMsgAdmin = () => {
+    setEffect(false);
+
+    // save message
+    setTimeout(() => {
+      // set loading to false
+      setLoading(false);
+      setAllChats([...allChats, dummyMessage[msgCount]]);
+      return;
+    }, 5000);
+
+    // increase count for admin's array index
+    msgCount === 2 ? setMsgCount(0) : setMsgCount(msgCount + 1);
   };
 
   const chatDisplay = allChats.map((val, index) => {
