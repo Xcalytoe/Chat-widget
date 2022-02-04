@@ -13,6 +13,14 @@ export const ChatBox = styled.div`
   border: 1px solid red;
   animation: content 0.3s ease-in-out 1 normal;
 
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
   @keyframes content {
     from {
       opacity: 0;
@@ -122,4 +130,61 @@ export const ChatHeaderBtn = styled.button`
   }
 `;
 
+export const ChatMainBody = styled.main`
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: calc(100% - 24px);
+  max-height: 509px;
+  max-height: 478px;
+  height: 100%;
+  z-index: 100;
+  left: 12px;
+  bottom: 17px;
+  overflow: hidden;
+  padding-top: 24px;
+  .chat-box {
+    padding-left: 20px;
+    overflow-y: auto;
+    max-height: 450px;
+    height: calc(100% - 60px);
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    h2 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      color: #78a431;
+      margin-bottom: 21px;
+    }
+  }
+`;
+export const ChatTextarea = styled.label`
+  position: relative;
+  margin-bottom: 11px;
+  display: block;
+  height: 39px;
+  margin-top: 10px;
+  width: calc(100% - 40px);
+  left: 20px;
+  input {
+    border: 1px solid #cbdfab;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-left: 58px;
+  }
+`;
 export const ChatText = styled.div``;

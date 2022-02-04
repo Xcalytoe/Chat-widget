@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChatBox, ChatIconBtn } from "./styles/ChatBox.styled";
 import Header from "./Header";
+import ChatBody from "./ChatBody";
 
 export default function ChatContainer() {
   const [openChat, setOpenChat] = useState(false);
@@ -14,7 +15,7 @@ export default function ChatContainer() {
       {!openChat && ( // display only when chat is open
         <ChatBox>
           <Header handleOpen={handleOpen} />
-          <div>Hererererer</div>
+          <ChatBody />
         </ChatBox>
       )}
       <ChatIconBtn onClick={handleOpen}>
