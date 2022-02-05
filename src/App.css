@@ -1,7 +1,36 @@
+/*
+This file will get large quickly when start add featutes so it should be split into
+reset.css
+for all the
 * {
   margin: 0;
   padding: 0;
 }
+
+body,
+...
+h6 {
+  font-family: GT Walsheim Pro;
+}
+
+utils.css
+For all the
+.flex {, .items-center { etc
+
+fonts.css
+For all the @font-face { code
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+src: url("../public/fonts/GTWalsheimProMedium.woff2") format("woff2"),
+you should have a static/fonts folder in the src
+There is no point putting the font in the public directory and refereecing it like this
+*/
 @font-face {
   font-family: "GT Walsheim Pro";
   src: url("../public/fonts/GTWalsheimProMedium.woff2") format("woff2"),

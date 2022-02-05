@@ -2,6 +2,7 @@ import React from "react";
 import { ChatHeader, ChatBtn } from "./styles/ChatBox.styled";
 
 export default function Header({ handleOpen }) {
+  // This function is useless, just go straight and do onClick={handleClose}
   const handleClose = () => {
     handleOpen(); // close chat
   };
@@ -11,13 +12,17 @@ export default function Header({ handleOpen }) {
         <ChatBtn onClick={handleClose} size={28} radius={4}>
           {back}
         </ChatBtn>
-        <div>
+        <div> {/* Seeing empty divs like this gives me goosebump, i know it is flex-item but it would be nice if it is stated, <div className="flex-item"> */}
           <h2>Start your conversation</h2>
           <p>Penny is set!</p>
         </div>
         <div className="flex">
+          {/* Instead of this unregulated props of size and radius, you can instead use `size` = 'large' | 'medium' | 'small' etc
+            This way your styles will be consistent and any change made in the future will be consistent
+          */}
           <ChatBtn onClick={handleClose} size={24} radius={3}>
             {minimise}
+            {/* This should be <MiniseIcon />  or <Icon name="minise" /> this ties to my comment on why this should be a component not a variable */}
           </ChatBtn>
           <ChatBtn onClick={handleClose} size={24} radius={3}>
             {close}
@@ -28,6 +33,7 @@ export default function Header({ handleOpen }) {
   );
 }
 
+// all this should be components and not constants
 const back = (
   <svg
     width="16"

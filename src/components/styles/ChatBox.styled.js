@@ -5,11 +5,11 @@ export const ChatBox = styled.div`
   width: 352px;
   max-height: 616px;
   height: calc(100% - 100px);
-  z-index: 2147483002;
+  z-index: 2147483002; /* Baba why na, Create a zIndex config on the app to manage your z-indexes */
   right: 20px;
   bottom: 100px;
   overflow-y: auto;
-  background: #ffffff;
+  background: #ffffff; /* Also colors should be in a config file too, it makes things look more consitent */
   animation: content 0.3s ease-in-out 1 normal;
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -19,6 +19,18 @@ export const ChatBox = styled.div`
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+
+  /* I believe stlyed-components has keyframes so that you can re-use it
+  const ContentTransform = keyframes\`\
+  0% {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+\`;\` */
 
   @keyframes content {
     from {
@@ -56,6 +68,7 @@ export const ChatIconBtn = styled.button`
   svg {
     transition: all 0.3s;
   }
+  /* You will not need to duplicate the keyframe here if you use the suggestion above */
   @keyframes content {
     from {
       opacity: 0;
@@ -72,16 +85,16 @@ export const ChatHeader = styled.header`
   background: #78a431;
   width: 100%;
   height: 143px;
-  div {
+  div { /* This is not good, create a styled-component for everything */
     column-gap: 6px;
   }
-  .chat-header {
+  .chat-header {  /* This is not good, create a styled-component for everything */
     justify-content: space-between;
     padding-top: 30px;
     padding-left: 12px;
     padding-right: 12px;
 
-    h2 {
+    h2 {  /* This is not good, create a styled-component for everything */
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
@@ -89,7 +102,7 @@ export const ChatHeader = styled.header`
       color: #ffffff;
       margin-bottom: 1;
     }
-    p {
+    p {  /* This is not good, create a styled-component for everything */
       font-style: normal;
       font-weight: normal;
       font-size: 12px;
@@ -136,7 +149,7 @@ export const ChatMainBody = styled.main`
   border-radius: 10px;
   width: calc(100% - 24px);
   max-height: 509px;
-  max-height: 478px;
+  max-height: 478px; /* Which max-height should we follow*/
   height: 100%;
   z-index: 100;
   left: 12px;
@@ -166,6 +179,7 @@ export const ChatMainBody = styled.main`
     }
   }
 `;
+// This is a bad naming, I was expecting `styled.textarea`, Please improve this naming
 export const ChatTextarea = styled.label`
   position: relative;
   margin-bottom: 11px;
@@ -204,7 +218,7 @@ export const ChatTextarea = styled.label`
       outline: none;
       background: none;
       border: none;
-      cursor: pointer;
+      cursor: pointer; /*Is there a button that the cursor is not pointer */
     }
   }
   .send-btn {
@@ -259,6 +273,7 @@ export const ChatText1 = styled.div`
     }
   }
 `;
+// what is ChatText1 or ChatText2, is it ChatTextRight or ChatTextLeft, please use better names
 export const ChatText2 = styled.div`
   display: flex;
   margin-bottom: 14px;

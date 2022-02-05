@@ -1,3 +1,4 @@
+// Constants like this should be PascalCase or UPPER_SNAKE_CASE
 export const emojis = [
   "😀",
   "😃",
@@ -33,10 +34,19 @@ export const emojis = [
 ];
 
 export const dummyMessage = [
+  // message, full names
+  // interesting to see that all the "type" are "admin"
   { msg: "Please let me know your name?", type: "admin" },
   { msg: "Thank You, what will you like to do today?", type: "admin" },
   { msg: "What else do you want me to do for you?", type: "admin" },
 ];
+
+/*
+There is really no good reason these days to maintain your own icons except you wrote them yourself
+There is tree-shaking so you will only be importing the icons you want
+Also you will have more flexibilty as modifing them will be easier, size, color etc, as here you will have to do it manual
+Or better still make it a component
+*/
 
 export const openIcon = (
   <svg
@@ -103,6 +113,7 @@ export const attachBtn = (
   </svg>
 );
 
+/* This should be sendIcon, if you need it with a button then wrap it with one */
 export const sendBtn = (
   <svg
     width="13"
